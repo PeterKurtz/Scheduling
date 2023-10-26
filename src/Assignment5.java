@@ -27,13 +27,13 @@ public class Assignment5 {
 
     public static void simpleQueueTest() {
         // TODO: Uncomment code here for a simple test of your priority queue code
-//        PriorityQueue<Integer> queue = new PriorityQueue<>();
-//        queue.enqueue(9);
-//        queue.enqueue(7);
-//        queue.enqueue(5);
-//        queue.enqueue(3);
-//        queue.enqueue(1);
-//        queue.enqueue(10);
+        PriorityQueue<Integer> queue = new PriorityQueue<>();
+        queue.enqueue(9);
+        queue.enqueue(7);
+        queue.enqueue(5);
+        queue.enqueue(3);
+        queue.enqueue(1);
+        queue.enqueue(10);
 //
 //        while (!queue.isEmpty()) {
 //            System.out.println(queue.dequeue());
