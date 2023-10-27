@@ -56,4 +56,13 @@ public class PriorityQueue<E extends Comparable<? super E>>{
         root = merge(root, treeWithValue);
         System.out.println();
     }
+
+    public boolean isEmpty() {
+        if (root == null) {
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 }
