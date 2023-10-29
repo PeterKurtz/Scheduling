@@ -33,7 +33,7 @@ public class PriorityQueue<E extends Comparable<? super E>>{
         if (getNpl(small.left) < getNpl(small.right))
             swapKids(small);
 
-        //setNullPathLength(small);
+        setNullPathLength(small);
 
         return small;
     }
@@ -54,7 +54,6 @@ public class PriorityQueue<E extends Comparable<? super E>>{
     public void enqueue(E value) {
         Node<E> treeWithValue = new Node<>(value);
         root = merge(root, treeWithValue);
-        System.out.println();
     }
 
     public boolean isEmpty() {
@@ -64,5 +63,15 @@ public class PriorityQueue<E extends Comparable<? super E>>{
         else{
             return false;
         }
+    }
+
+    private void setNullPathLength(Node<E> t) {
+        t.npl = getNpl(t.right) + 1;
+    }
+
+    public E dequeue(){
+        E valueOfRoot = root.value;
+        root = merge(root.right, root.left);
+        return valueOfRoot;
     }
 }

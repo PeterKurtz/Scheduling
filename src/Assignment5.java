@@ -34,13 +34,10 @@ public class Assignment5 {
         queue.enqueue(3);
         queue.enqueue(1);
         queue.enqueue(10);
-        //queue.enqueue(20);
-        //queue.enqueue(9);
-        System.out.println();
-//
-//        while (!queue.isEmpty()) {
-//            System.out.println(queue.dequeue());
-//        }
+
+        while (!queue.isEmpty()) {
+            System.out.println(queue.dequeue());
+        }
     }
 
     /**
