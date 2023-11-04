@@ -20,9 +20,9 @@ public class Assignment5 {
 
         readTasks(taskFile, tasksByDeadline, tasksByStart, tasksByDuration);
 
-        schedule("Deadline Priority : "+ taskFile, tasksByDeadline);
+        //schedule("Deadline Priority : "+ taskFile, tasksByDeadline);
         //schedule("Startime Priority : " + taskFile, tasksByStart);
-        //schedule("Duration priority : " + taskFile, tasksByDuration);
+        schedule("Duration priority : " + taskFile, tasksByDuration);
     }
 
     /**
@@ -53,7 +53,6 @@ public class Assignment5 {
                 tasksByStart.add(taskInput);
                 tasksByDuration.add(taskInput);
             }
-            System.out.println(tasksByDeadline);
         }
         catch (java.io.IOException ex) {
             System.out.println("An error occurred trying to read file: " + ex);
@@ -64,8 +63,9 @@ public class Assignment5 {
      * Given a set of tasks, schedules them and reports the scheduling results
      */
     public static void schedule(String label, ArrayList<Task> tasks) {
-        System.out.println(tasks.get(0).toString());
-        System.out.println();
+        if (label.contains("Duration")){
+            System.out.println("This is correct");
+        }
     }
 
     public static void simpleQueueTest() {
