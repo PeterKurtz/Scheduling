@@ -14,25 +14,24 @@ public class Assignment5 {
 
     public static void scheduleTasks(String taskFile) {
         // TODO: Uncomment code here as you complete the tasks and scheduling algorithm
-        ArrayList<TaskByDeadline> tasksByDeadline = new ArrayList<>();
-//        ArrayList<Task> tasksByStart = new ArrayList<>();
-//        ArrayList<Task> tasksByDuration = new ArrayList<>();
-//
-//        readTasks(taskFile, tasksByDeadline, tasksByStart, tasksByDuration);
-        readTasks(taskFile, tasksByDeadline);//Just to get deadline to work. When done delete and uncomment above.
-//
-        //schedule("Deadline Priority : "+ taskFile, tasksByDeadline);
-//        schedule("Startime Priority : " + taskFile, tasksByStart);
-//        schedule("Duration priority : " + taskFile, tasksByDuration);
+        ArrayList<Task> tasksByDeadline = new ArrayList<>();
+        ArrayList<Task> tasksByStart = new ArrayList<>();
+        ArrayList<Task> tasksByDuration = new ArrayList<>();
+
+        readTasks(taskFile, tasksByDeadline, tasksByStart, tasksByDuration);
+
+        schedule("Deadline Priority : "+ taskFile, tasksByDeadline);
+        //schedule("Startime Priority : " + taskFile, tasksByStart);
+        //schedule("Duration priority : " + taskFile, tasksByDuration);
     }
 
     /**
      * Reads the task data from a file, and creates the three different sets of tasks for each
      */
     public static void readTasks(String filename,
-                                 ArrayList<TaskByDeadline> tasksByDeadline/*,
+                                 ArrayList<Task> tasksByDeadline,
                                  ArrayList<Task> tasksByStart,
-                                 ArrayList<Task> tasksByDuration*/) {
+                                 ArrayList<Task> tasksByDuration) {
         // TODO: Write your task reading code here
 
         File file = new File(filename);
@@ -49,9 +48,14 @@ public class Assignment5 {
                 start = input.nextInt();
                 deadline = input.nextInt();
                 duration = input.nextInt();
-                TaskByDeadline task = new TaskByDeadline(id, start, deadline, duration);
-                task.print();
+                TaskByDeadline taskDeadline = new TaskByDeadline(id, start, deadline, duration);
+                TaskByStart taskStart = new TaskByStart(id, start, deadline, duration);
+                TaskByDuration taskDuration = new TaskByDuration(id, start, deadline, duration);
+                tasksByDeadline.add(taskDeadline);
+                tasksByStart.add(taskStart);
+                tasksByDuration.add(taskDuration);
             }
+            System.out.println(tasksByDeadline);
         }
         catch (java.io.IOException ex) {
             System.out.println("An error occurred trying to read file: " + ex);
@@ -62,7 +66,7 @@ public class Assignment5 {
      * Given a set of tasks, schedules them and reports the scheduling results
      */
     public static void schedule(String label, ArrayList<Task> tasks) {
-        // TODO: Write your scheduling algorithm here
+        System.out.println(tasks.get(0).toString());
     }
 
     public static void simpleQueueTest() {
