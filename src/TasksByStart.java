@@ -7,7 +7,15 @@ class TaskByStart extends Task{
     }
 
     @Override
-    public int compareTo(Task o) {
-        return 0;
+    public int compareTo(Task taskToCompare) {
+        if (start > taskToCompare.start) {
+            return 1;
+        }
+        else if (start < taskToCompare.start) {
+            return -1;
+        }
+        else {
+            return 0;
+        }
     }
 }

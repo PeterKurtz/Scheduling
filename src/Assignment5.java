@@ -9,7 +9,7 @@ public class Assignment5 {
         //scheduleTasks("taskset2.txt");
         //scheduleTasks("taskset3.txt");
         scheduleTasks("taskset4.txt");
-        scheduleTasks("taskset5.txt");
+        //scheduleTasks("taskset5.txt");
     }
 
     public static void scheduleTasks(String taskFile) {
@@ -63,9 +63,36 @@ public class Assignment5 {
      * Given a set of tasks, schedules them and reports the scheduling results
      */
     public static void schedule(String label, ArrayList<Task> tasks) {
+
         if (label.contains("Duration")){
-            System.out.println("This is correct");
+            PriorityQueue<TaskByDuration> durationQueue = new PriorityQueue<>();
+            duration(tasks, durationQueue);
         }
+        else if (label.contains("Start")) {
+            PriorityQueue<TaskByStart> startQueue = new PriorityQueue<>();
+            start(tasks, startQueue);
+        }
+        else if (label.contains("Deadline")){
+            PriorityQueue<TaskByDeadline> deadlineQueue = new PriorityQueue<>();
+            deadline(tasks, deadlineQueue);
+        }
+    }
+
+    public static void duration(ArrayList<Task> tasks, PriorityQueue<TaskByDuration> queue) {
+        int id = 0;
+        for (Task oneTask : tasks) {
+            TaskByDuration durationTask = new TaskByDuration(++id, oneTask.start, oneTask.deadline, oneTask.duration);
+            //System.out.println(durationTask.toString());
+            queue.enqueue(durationTask);
+        }
+    }
+
+    public static void start(ArrayList<Task> tasks, PriorityQueue<TaskByStart> queue) {
+        System.out.println("start m");
+    }
+
+    public static void deadline(ArrayList<Task> tasks, PriorityQueue<TaskByDeadline> queue) {
+        System.out.println("deadline m");
     }
 
     public static void simpleQueueTest() {

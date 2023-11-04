@@ -7,8 +7,16 @@ class TaskByDuration extends Task{
     }
 
     @Override
-    public int compareTo(Task o) {
-        return 0;
+    public int compareTo(Task taskToCompare) {
+        if (duration > taskToCompare.duration) {
+            return 1;
+        }
+        else if (duration < taskToCompare.duration) {
+            return -1;
+        }
+        else {
+            return 0;
+        }
     }
 }
 
