@@ -74,4 +74,8 @@ public class PriorityQueue<E extends Comparable<? super E>>{
         root = merge(root.right, root.left);
         return valueOfRoot;
     }
+
+    public E getValue() {
+        return root.value;
+    }
 }
