@@ -9,7 +9,7 @@ public class Assignment5 {
         //scheduleTasks("taskset2.txt");
         //scheduleTasks("taskset3.txt");
         scheduleTasks("taskset4.txt");
-        //scheduleTasks("taskset5.txt");
+        scheduleTasks("taskset5.txt");
     }
 
     public static void scheduleTasks(String taskFile) {
@@ -48,12 +48,10 @@ public class Assignment5 {
                 start = input.nextInt();
                 deadline = input.nextInt();
                 duration = input.nextInt();
-                TaskByDeadline taskDeadline = new TaskByDeadline(id, start, deadline, duration);
-                TaskByStart taskStart = new TaskByStart(id, start, deadline, duration);
-                TaskByDuration taskDuration = new TaskByDuration(id, start, deadline, duration);
-                tasksByDeadline.add(taskDeadline);
-                tasksByStart.add(taskStart);
-                tasksByDuration.add(taskDuration);
+                TaskByDeadline taskInput = new TaskByDeadline(id, start, deadline, duration);
+                tasksByDeadline.add(taskInput);
+                tasksByStart.add(taskInput);
+                tasksByDuration.add(taskInput);
             }
             System.out.println(tasksByDeadline);
         }
@@ -67,6 +65,7 @@ public class Assignment5 {
      */
     public static void schedule(String label, ArrayList<Task> tasks) {
         System.out.println(tasks.get(0).toString());
+        System.out.println();
     }
 
     public static void simpleQueueTest() {
