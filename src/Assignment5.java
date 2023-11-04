@@ -79,20 +79,41 @@ public class Assignment5 {
     }
 
     public static void duration(ArrayList<Task> tasks, PriorityQueue<TaskByDuration> queue) {
+
         int id = 0;
         for (Task oneTask : tasks) {
             TaskByDuration durationTask = new TaskByDuration(++id, oneTask.start, oneTask.deadline, oneTask.duration);
-            //System.out.println(durationTask.toString());
             queue.enqueue(durationTask);
+        }
+
+        int clock = 1;
+        ArrayList<TaskByDuration> notValid;
+
+        while (!queue.isEmpty()) {
+            TaskByDuration minDuration = queue.dequeue();
+            System.out.println("Time " + clock + ": " + minDuration.toString());
+            minDuration.duration = minDuration.duration - 1;
+            ++clock;
+            if (minDuration.duration != 0) {
+                queue.enqueue(minDuration);
+            }
         }
     }
 
     public static void start(ArrayList<Task> tasks, PriorityQueue<TaskByStart> queue) {
-        System.out.println("start m");
+        int id = 0;
+        for (Task oneTask : tasks) {
+            TaskByStart startTask = new TaskByStart(++id, oneTask.start, oneTask.deadline, oneTask.duration);
+            queue.enqueue(startTask);
+        }
     }
 
     public static void deadline(ArrayList<Task> tasks, PriorityQueue<TaskByDeadline> queue) {
-        System.out.println("deadline m");
+        int id = 0;
+        for (Task oneTask : tasks) {
+            TaskByDeadline deadlineTask = new TaskByDeadline(++id, oneTask.start, oneTask.deadline, oneTask.duration);
+            queue.enqueue(deadlineTask);
+        }
     }
 
     public static void simpleQueueTest() {
