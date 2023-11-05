@@ -6,8 +6,8 @@ import java.util.Scanner;
 
 public class Assignment5 {
     public static void main(String[] args) {
-        //simpleQueueTest();
-        scheduleTasks("taskset1.txt");
+        simpleQueueTest();
+        //scheduleTasks("taskset1.txt");
         //scheduleTasks("taskset2.txt");
         //scheduleTasks("taskset3.txt");
         scheduleTasks("taskset4.txt");
