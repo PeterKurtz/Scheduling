@@ -1,17 +1,15 @@
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.Scanner;
 
 public class Assignment5 {
     public static void main(String[] args) {
         simpleQueueTest();
-        //scheduleTasks("taskset1.txt");
-        //scheduleTasks("taskset2.txt");
-        //scheduleTasks("taskset3.txt");
+        scheduleTasks("taskset1.txt");
+        scheduleTasks("taskset2.txt");
+        scheduleTasks("taskset3.txt");
         scheduleTasks("taskset4.txt");
-        //scheduleTasks("taskset5.txt");
+        scheduleTasks("taskset5.txt");
     }
 
     public static void scheduleTasks(String taskFile) {
